@@ -1,0 +1,4 @@
+.DS_Store
+.babelrc
+.npmignore
+node_modules

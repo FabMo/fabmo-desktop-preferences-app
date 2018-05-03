@@ -1,0 +1,63 @@
+SU,0                   ' Set to Inches`
+$y_backoff := .5
+$xy_search_speed:= 2.5
+
+&x_start_pos = %(1)
+&y_start_pos = %(2)
+&y_search = -20.0
+&x_search = -26.0
+&z_search = 20
+&z_search_speed = 1.5
+&xy_slow_search_speed = .25
+&homing_input = 3
+
+
+
+GOSUB clear_z
+GOSUB calc_y_offset
+GOSUB calc_x_offset
+GOSUB go_to_offset
+
+END
+
+clear_z: 
+    PZ, %(3) + &z_search, &z_search_speed, &homing_input  ' Search for prox switch
+    JZ, %(3) - $z_backoff
+    RETURN
+    
+calc_y_offset:
+	PY, %(2) + &y_search, $xy_search_speed, &homing_input  ' Search for prox switch
+    &ybackoff = (%(2) + $y_backoff)
+    JY, &ybackoff
+    &target_ck = %(2) + (-1 * (0.5 + $y_backoff)) 
+    PY, &target_ck, &xy_slow_search_speed, &homing_input   ' Slowly search for prox in accurate check
+    IF %(2) = &target_ck THEN GOSUB missed_target
+    &new_y_pos = %(2)
+    &y_offset = &y_start_pos - &new_y_pos
+    JY, &ybackoff
+    RETURN 
+    
+calc_x_offset:
+	PX, %(1) + &x_search, $xy_search_speed, &homing_input  ' Search for prox switch 
+    &xbackoff = (%(1) + $x_backoff)
+    JX, &xbackoff
+    &target_ck = (-1 * (0.5 + $x_backoff)) 
+    PX, &target_ck + %(1), &xy_slow_search_speed, &homing_input   ' Slowly search for prox in accurate check
+    IF %(1) = &target_ck THEN GOSUB missed_target
+    &new_x_pos = %(1)
+    &x_offset = &x_start_pos - &new_x_pos
+    
+    JX, &xbackoff
+    RETURN
+    
+go_to_offset:
+	J2 &x_start_pos, &y_start_pos
+    $x_offset = &x_offset
+    $y_offset = &y_offset
+    VA 0,0
+    RETURN 
+    
+
+    
+missed_target:
+    END "Target Not Triggered!"                           ' Did not hit target. use FAILED type END 

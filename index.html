@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Desktop Preferences</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <nav class="panel">
+      <p class=panel-heading>Machine Preferences</p>
+      <a   id="homing"  class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-home"></i>
+        </span>
+        Homing
+      </a>
+      <a id="z-zeoring" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-arrow-circle-o-down"></i>
+        </span>
+        Z-zeroing
+      </a>
+      <a id="manual-tool-change" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-wrench" aria-hidden="true"></i>
+        </span>
+        Manual tool changes
+      </a>
+      <a id="squaring-routine" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-square-o" aria-hidden="true"></i>
+        </span>
+        Squaring routine 
+      </a>
+
+    </nav>
+    <section  class="homing section">
+      <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+
+      <div class="container">
+        <h1 class="title">Homing</h1>
+        <h2 class="subtitle">
+          Set up information about how your homing routines will run
+        </h2>
+        <hr>
+        <div class="field">
+          <label class="label">X offset</label>
+          <div class="control">
+            <input id="x_offset" class="input" type="text" value="0.875" placeholder="Text input">
+          </div>
+          <p class="help">How far off your x proximity switch zero will be</p>
+        </div>
+        <div class="field">
+          <label class="label">Y offset</label>
+          <div class="control">
+            <input id="y_offset" value="0.5" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">How far off your y proximity switch zero will be</p>
+        </div>
+        <div class="field">
+          <label class="label">Homing speeds</label>
+          <div class="control">
+            <input id="xy_search_speed" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">How fast your tool will run</p>
+        </div>
+        <div class="field">
+          <label class="label">Use current tool head position</label>
+          <div class="control">
+            <a id="set-offsets" class="button is-danger is-large">Run</a>
+          </div>
+          <p class="help">Will run tool to automatically measure offsets to current position</p>
+        </div>
+      </div>
+    </section>
+    <section class="section z-zeoring">
+      <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+
+      <div class="container">
+        <h1 class="title">Z-zeroing</h1>
+        <h2 class="subtitle">
+          Set up variables for zeroing your z axis
+        </h2>
+        <hr>
+        <div class="field">
+          <label class="label">Z plate thickness</label>
+          <div class="select">
+            <select id = "ZZeroPlateThickness">
+              <option value="0.57">Pressure Sensitive Z-Zero (3/4")</option>
+              <option value="0.118">Standard (1/8")</option>
+              <option value="custom">Custom</option>
+            </select>
+            <input id="custom-z" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">The thickness of your z-zero plate</p>
+        </div>
+        <div class="field">
+          <label class="label">Z speed</label>
+          <div class="control">
+            <input id = "ZZeroSearchSpeedFast" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">The rate your toolhead will approach the z-zero plate</p>
+        </div>
+      </div>
+    </section>
+    <section class="section manual-tool-change">
+      <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+
+      <div class="container">
+        <h1 class="title">Manual Tool Change</h1>
+        <h2 class="subtitle">
+          Set up variables for where your tool will go when doing a manual tool change
+        </h2>
+        <hr>
+        <div class="field">
+          <label class="label">X coordinate</label>
+          <div class="control">
+            <input id="tool_change_x" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">Where in the X coordinate the tool will move for tool change</p>
+        </div>
+        <div class="field">
+          <label class="label">Y coordinate</label>
+          <div class="control">
+            <input id="tool_change_y" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">Where in the Y coordinate the tool will move for tool change</p>
+        </div>
+        <div class="field">
+          <label class="label">Z coordinate</label>
+          <div class="control">
+            <input id="tool_change_z" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">Where in the Z coordinate the tool will move for tool change</p>
+        </div>
+        <div class="field">
+          <label class="label">Safe Z</label>
+          <div class="control">
+            <input id="tool_change_safe_z" class="input" type="text" placeholder="Text input">
+          </div>
+          <p class="help">The height your tool will move to before making any horizantal movements</p>
+        </div>
+      </div>
+    </section>
+    <section class="section squaring-routine">
+        <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+  
+        <div class="container">
+            <h1 class="title">Squaring Routine</h1>
+            <h2 class="subtitle">
+              Run a short program to re-square your tool
+            </h2>
+            <hr>
+            <div class="field">
+                <div class="columns is-mobile">
+                  <div class="column is-half is-offset-one-quarter has-text-centered">
+                      <a id="runSquare" class="button is-large is-success ">Run Squaring Routine</a>
+
+                  </div>
+                </div>
+        </div>
+      </section>
+
+    <script type="text/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/fabmo.js"></script>
+    <script type="text/javascript" src="lib/main.js"></script>
+
+
+  </body>
+</html>
