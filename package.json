@@ -14,10 +14,10 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015-ie": "^6.7.0",
     "bulma": "^0.6.0",
+    "grunt": "^1.0.3",
+    "grunt-zip": "^0.17.1",
     "node-sass": "^4.5.3",
-    "postcss-cli": "^4.1.1",
-    "grunt": "^1.0.1",
-		"grunt-zip": "^0.17.1"
+    "postcss-cli": "^4.1.1"
   },
   "scripts": {
     "css-deploy": "npm run css-build && npm run css-postcss",

@@ -42,3 +42,7 @@ $primary-invert: $pink-invert;
 .delete {
     z-index: 1000;
 }
+
+.z_options, .xy_options{
+    display: none;
+}
