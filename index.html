@@ -116,58 +116,32 @@
         <div class="field">
           <label class="label">MTC Mode</label>
           <p class="help">What should the tool do when a tool change is encountered in a file?</p>
-          <div class="control">
-            <label class="radio">
-              <input type="radio" name="mtc_mode" value="MTC" checked>
-              Change tools
-            </label>
-            <label class="radio">
-              <input type="radio" name="mtc_mode" value="IGNORE">
-              Ignore and continue running
-            </label>
-            <label class="radio">
-              <input type="radio" name="mtc_mode"  value="QUIT">
-              Quit the file
-            </label>
+            <a class="button select-button">Change Tools</a>
+            <a class="button select-button">Ignore</a>
+            <a class="button select-button">Quit the File</a>
+        </div>
+        <div class="field">        
+          <div class="mtc_options">
+            <label class="label">Tool Change Z Location</label>
+            <p class="help">Where do you want your Z to go during a tool change?</p>
+            <a class="button">Max Height</a>
+            <a class="button">Fixed Height</a>
           </div>
         </div>
-        <div class="mtc_options">
-          <label class="label">Tool Change Z Location</label>
-          <p class="help">Where do you want your Z to go during a tool change?</p>
-          <div class="field">
-            <div class="control">
-              <label class="radio">
-                <input type="radio" name="mtc_z_mode" value="MAX" checked>
-                Max height
-              </label>
-              <label class="radio">
-                <input type="radio" name="mtc_z_mode"  value="FIXED">
-                Fixed height
-              </label>
-            </div>
-          </div>
+        <div class="field">
           <div class="z_options">
-            <div class="field">
                 <label class="label">Z coordinate</label>
                 <div class="control">
                   <input id="tool_change_z" class="input" type="text" placeholder="z coordinate">
                 </div>
                 <p class="help">Where in the Z coordinate the tool will move for tool change</p>
-            </div>
           </div>
+        <div>
           <div class="field">
             <label class="label">Tool Change XY Location</label>
             <p class="help">Where do you want your X and Y to move during a tool change?</p>
-            <div class="control">
-              <label class="radio">
-                <input type="radio" name="mtc_xy_mode" value="STATIC" checked>
-                Stay
-              </label>
-              <label class="radio">
-                <input type="radio" name="mtc_xy_mode"  value="FIXED">
-                Fixed location
-              </label>
-            </div>
+            <a class="button select-button">Stay Put</a>
+            <a class="button select-button">Fixed Location</a>
           </div>
           <div class="xy_options">
             <div class="field">
@@ -209,7 +183,5 @@
     <script type="text/javascript" src="lib/jquery.min.js"></script>
     <script type="text/javascript" src="lib/fabmo.js"></script>
     <script type="text/javascript" src="lib/main.js"></script>
-
-
   </body>
 </html>
