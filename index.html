@@ -110,27 +110,30 @@
       <div class="container">
         <h1 class="title">Manual Tool Change</h1>
         <h2 class="subtitle">
-          Set up variables for where your tool will go when doing a manual tool change
+         Configure how your tool will conduct manual tool changes.
         </h2>
         <hr>
         <div class="field">
+          <label class="label">MTC Mode</label>
+          <p class="help">What should the tool do when a tool change is encountered in a file?</p>
           <div class="control">
             <label class="radio">
               <input type="radio" name="mtc_mode" value="MTC" checked>
               Change tools
             </label>
             <label class="radio">
-              <input type="radio" name="mtc_mode"  value="QUIT">
-              Quit file
+              <input type="radio" name="mtc_mode" value="IGNORE">
+              Ignore and continue running
             </label>
             <label class="radio">
-              <input type="radio" name="mtc_mode" value="IGNORE">
-              Ignore tool change
+              <input type="radio" name="mtc_mode"  value="QUIT">
+              Quit the file
             </label>
           </div>
-          <p class="help">How would you like to handle tool changes in a file?</p>
         </div>
         <div class="mtc_options">
+          <label class="label">Tool Change Z Location</label>
+          <p class="help">Where do you want your Z to go during a tool change?</p>
           <div class="field">
             <div class="control">
               <label class="radio">
@@ -142,7 +145,6 @@
                 Fixed height
               </label>
             </div>
-            <p class="help">Where do you want your Z to go during a tool change?</p>
           </div>
           <div class="z_options">
             <div class="field">
@@ -154,6 +156,8 @@
             </div>
           </div>
           <div class="field">
+            <label class="label">Tool Change XY Location</label>
+            <p class="help">Where do you want your X and Y to move during a tool change?</p>
             <div class="control">
               <label class="radio">
                 <input type="radio" name="mtc_xy_mode" value="STATIC" checked>
@@ -164,7 +168,6 @@
                 Fixed location
               </label>
             </div>
-            <p class="help">Where do you want your X and Y to move during a tool change?</p>
           </div>
           <div class="xy_options">
             <div class="field">
