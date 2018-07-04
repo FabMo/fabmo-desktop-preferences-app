@@ -34,6 +34,12 @@
         </span>
         Squaring routine 
       </a>
+      <a id="spindle-warm-up" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-coffee" aria-hidden="true"></i>
+        </span>
+        Spindle Warm Up
+      </a>
 
     </nav>
     <section  class="homing section">
@@ -66,11 +72,14 @@
           <p class="help">How fast your tool will run</p>
         </div>
         <div class="field">
-          <label class="label">Use current tool head position</label>
-          <div class="control">
-            <a id="set-offsets" class="button is-danger is-large">Run</a>
+          <label class="label">Use current location</label>
+          <div class="control is-centered">
+              <a id="set-offsets" class="button is-danger">Use current tool head position</a>
+            <p class="help">Will run a program to automatically measure offsets to current tool position (good for custom jigs)</p>
+
+            </div>
           </div>
-          <p class="help">Will run tool to automatically measure offsets to current position</p>
+
         </div>
       </div>
     </section>
@@ -89,9 +98,9 @@
             <select id = "ZZeroPlateThickness">
               <option value="0.57">Pressure Sensitive Z-Zero (3/4")</option>
               <option value="0.118">Standard (1/8")</option>
-              <option value="custom">Custom</option>
+              <option value="0">Custom</option>
             </select>
-            <input id="custom-z" class="input" type="text" placeholder="z plate thickness">
+            <input id="custom-z" value="0" class="input" type="text" placeholder="Z plate thickness">
           </div>
           <p class="help">The thickness of your z-zero plate</p>
         </div>
@@ -177,9 +186,26 @@
             </h2>
             <hr>
             <div class="field">
-              <div class="columns is-mobile">
-                <div class="column is-half is-offset-one-quarter has-text-centered">
+              <div class="columns is-mobile is-centered">
+                <div class="column has-text-centered">
                     <a id="runSquare" class="button is-large is-success ">Run Squaring Routine</a>
+                </div>
+              </div>
+        </div>
+      </section>
+      <section class="section spindle-warm-up">
+        <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+  
+        <div class="container">
+            <h1 class="title">Spindle Warm Up</h1>
+            <h2 class="subtitle">
+              Run a program to turn on and warm up your spindle when you start for the day
+            </h2>
+            <hr>
+            <div class="field">
+              <div class="columns is-mobile is-centered">
+                <div class="column has-text-centered">
+                    <a id="runWarmUp" class="button is-large is-danger">Run Warm Up</a>
                 </div>
               </div>
         </div>
