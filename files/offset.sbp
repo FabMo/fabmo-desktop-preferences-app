@@ -1,5 +1,7 @@
 SU,0                   ' Set to Inches`
 $y_backoff := .5
+$z_backoff := .5
+$x_backoff := .5
 $xy_search_speed:= 2.5
 
 &x_start_pos = %(1)
@@ -17,7 +19,6 @@ GOSUB clear_z
 GOSUB calc_y_offset
 GOSUB calc_x_offset
 GOSUB go_to_offset
-
 END
 
 clear_z: 
@@ -52,12 +53,10 @@ calc_x_offset:
     
 go_to_offset:
 	J2 &x_start_pos, &y_start_pos
-    $x_offset = &x_offset
-    $y_offset = &y_offset
+    $home_position_x = &x_offset
+    $home_position_y = &y_offset
     VA 0,0
     RETURN 
     
-
-    
 missed_target:
-    END "Target Not Triggered!"                           ' Did not hit target. use FAILED type END 
+    FAIL  "Missed Probing Target"
