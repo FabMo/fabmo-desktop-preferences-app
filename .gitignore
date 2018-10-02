@@ -2,3 +2,4 @@
 .babelrc
 .npmignore
 node_modules
+build/*
