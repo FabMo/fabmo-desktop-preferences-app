@@ -9,36 +9,49 @@
   </head>
   <body>
     <nav class="panel">
-      <p class=panel-heading>Machine Preferences</p>
-      <a   id="homing"  class="panel-block">
+      <p class=panel-heading><strong>Desktop Utilities</strong></p>
+      <a id="home-tool" class="panel-block">
         <span class="panel-icon">
-          <i class="fa fa-home"></i>
+          <i class="fa fa-arrows-alt" aria-hidden="true"></i>
         </span>
-        Homing
-      </a>
-      <a id="z-zeoring" class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-arrow-circle-o-down"></i>
-        </span>
-        Z-zeroing
-      </a>
-      <a id="manual-tool-change" class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-wrench" aria-hidden="true"></i>
-        </span>
-        Manual tool changes
-      </a>
-      <a id="squaring-routine" class="panel-block">
-        <span class="panel-icon">
-          <i class="fa fa-square-o" aria-hidden="true"></i>
-        </span>
-        Squaring routine 
+        Home Tool
       </a>
       <a id="spindle-warm-up" class="panel-block">
         <span class="panel-icon">
           <i class="fa fa-coffee" aria-hidden="true"></i>
         </span>
-        Spindle Warm Up
+        Warm Up Spindle
+      </a>
+      <a id="set-z" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </span>
+        Set Z-Zero for New Router Bit
+      </a>
+      <a id="squaring-routine" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-square-o" aria-hidden="true"></i>
+        </span>
+        Square Gantry 
+      </a>
+      <p class=panel-heading><strong>Desktop Preferences</strong></p>
+      <a   id="homing"  class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-home"></i>
+        </span>
+        Change Homing Preferences
+      </a>
+      <a id="z-zeoring" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-arrow-circle-o-down"></i>
+        </span>
+        Change Z-zeroing Preferences
+      </a>
+      <a id="manual-tool-change" class="panel-block">
+        <span class="panel-icon">
+          <i class="fa fa-wrench" aria-hidden="true"></i>
+        </span>
+        Change Manual Tool-Change Preferences
       </a>
 
     </nav>
@@ -119,7 +132,8 @@
       <div class="container">
         <h1 class="title">Manual Tool Change</h1>
         <h2 class="subtitle">
-         Configure how your tool will conduct manual tool changes.
+         Configure how your tool will conduct manual tool changes defined using the ShopBot-TC(inch) or the ShopBot-TC(mm) Post Processor in <strong>V-Carve Pro</strong>
+          or <strong>Aspire</strong>.
         </h2>
         <hr>
         <div class="field" id="mtc_mode">
@@ -176,13 +190,47 @@
         </div>
       </div>
     </section>
+    <section class="section home-tool">
+      <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+
+      <div class="container">
+          <h1 class="title">Home Tool</h1>
+          <h2 class="subtitle">
+            Homes the tool in X, Y, and Z [for last Z-zeroed router bit] (same as Macro #3)
+          </h2>
+          <hr>
+          <div class="field">
+            <div class="columns is-mobile is-centered">
+              <div class="column has-text-centered">
+                  <a id="allHome" class="button is-large is-success ">Home!</a>
+              </div>
+            </div>
+      </div>
+    </section>
+    <section class="section set-z">
+      <button class="delete is-large is-pulled-right" aria-label="delete"></button>
+
+      <div class="container">
+          <h1 class="title">Set Z-Zero for New Router Bit</h1>
+          <h2 class="subtitle">
+            If you've changed cutters or repositioned a cutter this routine re-sets Zero using the Z-Zero Plate (same as Macro #2)
+          </h2>
+          <hr>
+          <div class="field">
+            <div class="columns is-mobile is-centered">
+              <div class="column has-text-centered">
+                  <a id="zZero" class="button is-large is-success ">Set Z</a>
+              </div>
+            </div>
+      </div>
+    </section>
     <section class="section squaring-routine">
         <button class="delete is-large is-pulled-right" aria-label="delete"></button>
   
         <div class="container">
-            <h1 class="title">Squaring Routine</h1>
+            <h1 class="title">Square Gantry</h1>
             <h2 class="subtitle">
-              Run a short program to re-square your tool
+              Re-squares gantry by forcing into end stops (same as Macro #10)
             </h2>
             <hr>
             <div class="field">
@@ -199,7 +247,7 @@
         <div class="container">
             <h1 class="title">Spindle Warm Up</h1>
             <h2 class="subtitle">
-              Run a program to turn on and warm up your spindle when you start for the day
+              Turn on and warm up your spindle for 2 minutes when you start for the day (same as Macro #5)
             </h2>
             <hr>
             <div class="field">

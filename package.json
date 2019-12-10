@@ -1,8 +1,8 @@
 {
-  "name": "Desktop-Preferences-App",
-  "version": "0.0.1",
-  "description": "Easy way to set variables for desktop routines",
-  "author": "Brendan Collins",
+  "name": "Desktop-Utils-Prefs",
+  "version": "0.0.2",
+  "description": "Easy way to run Utilities and set preference variables for Desktop Tools",
+  "author": "Brendan Collins, et al",
   "license": "MIT",
   "icon": "icon.png",
   "icon_color": "#ffffff",
