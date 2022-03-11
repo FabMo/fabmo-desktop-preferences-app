@@ -66,36 +66,38 @@
         <div class="field">
           <label class="label">X offset</label>
           <div class="control">
-            <input id="home_position_x" class="input" type="text" placeholder="x offset">
+            <input id="SB_HOMEOFF_X" class="input" type="text" placeholder="x offset">
           </div>
-          <p class="help">How far off your x proximity switch zero will be</p>
+          <p class="help">How far off your X-axis proximity switch to set machine zero for X (default = .5in)</p>
         </div>
         <div class="field">
           <label class="label">Y offset</label>
           <div class="control">
-            <input id="home_position_y"  class="input" type="text" placeholder="y offset">
+            <input id="SB_HOMEOFF_Y"  class="input" type="text" placeholder="y offset">
           </div>
-          <p class="help">How far off your y proximity switch zero will be</p>
+          <p class="help">How far off your Y-axis proximity switch to set machine zero for Y (default = .5in)</p>
         </div>
         <div class="field">
           <label class="label">Homing speeds</label>
           <div class="control">
-            <input id="xy_search_speed" class="input" type="text"  placeholder="homing speeds">
+            <input id="SB_SEARCHSPEED_XY" class="input" type="text"  placeholder="homing speeds">
           </div>
-          <p class="help">How fast your tool will run</p>
+          <p class="help">How fast will your tool initially run towards machine zero in X and Y (typically 2.5ips)</p>
         </div>
-        <div class="field">
+<!--        <div class="field">
           <label class="label">Use current location</label>
           <div class="control is-centered">
               <a id="set-offsets" class="button is-danger">Use current tool head position</a>
             <p class="help">Will run a program to automatically measure offsets to current tool position (good for custom jigs)</p>
 
             </div>
-          </div>
+          </div> 
 
-        </div>
+        </div> -->
       </div>
     </section>
+
+
     <section class="section z-zeoring">
       <button class="delete is-large is-pulled-right" aria-label="delete"></button>
 
@@ -106,23 +108,28 @@
         </h2>
         <hr>
         <div class="field">
-          <label class="label">Z plate thickness</label>
-          <div class="select">
-            <select id = "ZZeroPlateThickness">
+          <!-- <label class="label">Z plate thickness</label> -->
+          <!-- <div class="select">
+            <select id = "SB_ZPLATETHICK">
               <option value="0.57">Pressure Sensitive Z-Zero (3/4")</option>
               <option value="0.118">Standard (1/8")</option>
               <option value="0">Custom</option>
             </select>
             <input id="custom-z" value="0" class="input" type="text" placeholder="Z plate thickness">
-          </div>
-          <p class="help">The thickness of your z-zero plate</p>
+          </div> -->
+        <div class="field">
+          <label class="label">Z plate thickness</label>
+          <div class="control">
+            <input id="SB_ZPLATETHICK" value="0" class="input" type="text" placeholder="Z plate thickness">
+            <p class="help">The true thickness of your z-zero plate (typically .118 for Standard ShopBot Plate)</p>
+          </div>  
         </div>
         <div class="field">
           <label class="label">Z homing speed</label>
           <div class="control">
-            <input id = "ZZeroSearchSpeedFast" class="input" type="text"  placeholder="Z homing speed">
+            <input id = "SB_SEARCHSPEED_ZZERO" class="input" type="text"  placeholder="Z homing speed">
           </div>
-          <p class="help">The rate your toolhead will approach the z-zero plate</p>
+          <p class="help">The initial rate your toolhead will approach the z-zero plate (typically 0.5ips)</p>
         </div>
       </div>
     </section>
@@ -132,58 +139,58 @@
       <div class="container">
         <h1 class="title">Manual Tool Change</h1>
         <h2 class="subtitle">
-         Configure how your tool will conduct manual tool changes defined using the ShopBot-TC(inch) or the ShopBot-TC(mm) Post Processor in <strong>V-Carve Pro</strong>
+         Configure how your tool will conduct a Manual Tool Changes defined using the ShopBot-TC(inch) or the ShopBot-TC(mm) Post Processor in <strong>V-Carve Pro</strong>
           or <strong>Aspire</strong>.
         </h2>
         <hr>
-        <div class="field" id="mtc_mode">
+        <div class="field" id="SB_MTCMODE">
           <label class="label">MTC Mode</label>
-            <p class="help">What should the tool do when a tool change is encountered in a file?</p>
-            <a class="button select-button" data-variable="mtc_mode" data-value="MTC">Change Tools</a>
-            <a class="button select-button" data-variable="mtc_mode" data-value="IGNORE">Ignore</a>
-            <a class="button select-button" data-variable="mtc_mode" data-value="QUIT">Quit the File</a>
+            <p class="help">What should the tool do when a Manual Tool Change request (Macro#9) is encountered in a file?</p>
+            <a class="button select-button" data-variable="SB_MTCMODE" data-value="MTC">Initiate Tool Change</a>
+            <a class="button select-button" data-variable="SB_MTCMODE" data-value="IGNORE">Ignore</a>
+            <a class="button select-button" data-variable="SB_MTCMODE" data-value="QUIT">Quit the File</a>
         </div>
-        <div class="expand-section" data-variable="mtc_mode" data-expand-value="MTC">
-          <div class="field" id="mtc_zero_mode">
+        <div class="expand-section" data-variable="SB_MTCMODE" data-expand-value="MTC">
+          <div class="field" id="SB_MTC_ZERO_MODE">
             <label class="label">Tool Zeroing Method</label>
               <p class="help">How do you want to zero the new tool?</p>
-              <a class="button select-button" data-variable="mtc_zero_mode" data-value="MACRO">Using Z-Zero Macro</a>
-              <a class="button select-button" data-variable="mtc_zero_mode" data-value="DRO">Set Manually with Keypad</a>
+              <a class="button select-button" data-variable="SB_MTC_ZERO_MODE" data-value="MACRO">Using Z-Zero Macro#2</a>
+              <a class="button select-button" data-variable="SB_MTC_ZERO_MODE" data-value="DRO">Position and Set Manually using Keypad</a>
           </div>
 
-          <div class="field" id="mtc_z_mode">        
+          <div class="field" id="SB_MTC_Z_MODE">        
               <label class="label">Tool Change Z Location</label>
-              <p class="help">Where do you want your Z to go during a tool change?</p>
-              <a class="button select-button" data-variable="mtc_z_mode" data-value="MAX">Max Height</a>
-              <a class="button select-button" data-variable="mtc_z_mode" data-value="FIXED">Fixed Height</a>
+              <p class="help">Where do you want your Z to go for a Tool Change?</p>
+              <a class="button select-button" data-variable="SB_MTC_Z_MODE" data-value="MAX">Max Height</a>
+              <a class="button select-button" data-variable="SB_MTC_Z_MODE" data-value="FIXED">Fixed Height</a>
           </div>
-          <div class="field expand-section" data-variable="mtc_z_mode" data-expand-value="FIXED">
+          <div class="field expand-section" data-variable="SB_MTC_Z_MODE" data-expand-value="FIXED">
             <label class="label">Z coordinate</label>
             <div class="control">
-              <input id="tool_change_z" class="input" type="text" placeholder="z coordinate">
+              <input id="SB_CHANGEPOS_Z" class="input" type="text" placeholder="z coordinate">
             </div>
-            <p class="help">Where in the Z coordinate the tool will move for tool change</p>
+            <p class="help">Specify a fixed Z-axis location for Tool Changes</p>
           </div>
-            <div class="field" id="mtc_xy_mode">
+            <div class="field" id="SB_MTC_XY_MODE">
               <label class="label">Tool Change XY Location</label>
-              <p class="help">Where do you want your X and Y to move during a tool change?</p>
-              <a class="button select-button" data-variable="mtc_xy_mode" data-value="STAY">Stay Put</a>
-              <a class="button select-button" data-variable="mtc_xy_mode" data-value="FIXED">Fixed Location</a>
+              <p class="help">Where do you want your tool in the X-axis and Y-axis for a Tool Change?</p>
+              <a class="button select-button" data-variable="SB_MTC_XY_MODE" data-value="STAY">Variable Move (or none)</a>
+              <a class="button select-button" data-variable="SB_MTC_XY_MODE" data-value="FIXED">Fixed Location</a>
             </div>
-            <div class="expand-section" data-variable="mtc_xy_mode" data-expand-value="FIXED">
+            <div class="expand-section" data-variable="SB_MTC_XY_MODE" data-expand-value="FIXED">
               <div class="field">
                 <label class="label">X coordinate</label>
                 <div class="control">
-                  <input id="tool_change_x" class="input" type="text" placeholder="x coordinate">
+                  <input id="SB_CHANGEPOS_X" class="input" type="text" placeholder="x coordinate">
                 </div>
-                <p class="help">Where in the X coordinate the tool will move for tool change</p>
+                <p class="help">Specify a fixed X-axis location for Tool Changes</p>
               </div>
               <div class="field">
                 <label class="label">Y coordinate</label>
                 <div class="control">
-                  <input id="tool_change_y" class="input" type="text" placeholder="y coordinate">
+                  <input id="SB_CHANGEPOS_Y" class="input" type="text" placeholder="y coordinate">
                 </div>
-                <p class="help">Where in the Y coordinate the tool will move for tool change</p>
+                <p class="help">Specify a fixed Y-axis location for Tool Changes</p>
               </div>
             </div>
           </div>

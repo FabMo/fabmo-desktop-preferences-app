@@ -1,3 +1,7 @@
+'' Don't use yet
+'' This one needs work and to be set up for inches and metric and to make use of new Standard Macro Variables
+'' th 3/10/22
+
 SU,0                   ' Set to Inches`
 $y_backoff := .5
 $z_backoff := .5
@@ -14,8 +18,8 @@ $xy_search_speed:= 2.5
 &homing_input = 3
 
 
-
-GOSUB clear_z
+JZ, $sb_z_pullup
+'GOSUB clear_z                '' skip z because we don't know how this is set up yet
 GOSUB calc_y_offset
 GOSUB calc_x_offset
 GOSUB go_to_offset
